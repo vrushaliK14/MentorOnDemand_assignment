@@ -1,0 +1,53 @@
+
+<br>
+
+<div class="container">
+
+  <div class="row text-left">
+      <h4 class="font-italic text-capitalize text-md-left text-info">{{userDetails$.userName}}</h4>
+  </div>
+
+  <br>
+  <div class="row text-left">
+      
+      <h4 class="font-italic text-capitalize text-md-left text-info">Here are your current Trianing details </h4>
+  
+      <table  class="table 
+      table-light  table-bordered table-striped table-hover ">
+      <thead class="table-info">
+        <th>Training Name</th>
+        <th>Mentor</th>
+        <th>StartDate</th>
+        <th>endDate</th>
+        <th>Batch Time</th>
+        <th>Status</th>
+      </thead>
+      <tbody>
+          <tr *ngFor="let training of restTrainingList$" >
+            <td>{{training.technology}}</td>
+            <td>{{training.mentorName}}</td>
+            <td>{{training.startDate}}</td>
+            <td>{{training.endDate}}</td>
+            <td>{{training.batchTime}}</td>
+            <td>{{training.status}}</td>
+          </tr>
+       </tbody>   
+      </table>
+    </div>
+      
+
+
+ <br>
+ <div class="row text-left">
+     <h4 class="font-italic text-capitalize text-md-left text-info">Looking for next learnings. Search Here </h4>
+     
+     <app-welcome></app-welcome>
+ </div>
+ 
+ <br>
+ <div>
+  <h4 class="font-italic text-capitalize text-md-left text-info">Notifications  </h4>
+      <p class="font-italic" >1.We are luanching soon training on new techology </p>
+ </div>
+
+</div>

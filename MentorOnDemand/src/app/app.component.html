@@ -1,0 +1,15 @@
+
+    <h1 class="text-center">Welcome to Mentors on Demand Site </h1>
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+        <div class="navbar-nav">
+                <a class="nav-item nav-link" routerLink="/welcome">Welcome</a>
+                <a *ngIf="loginService.isUser()" class="nav-item nav-link" routerLink="/home">Home</a>
+                <a *ngIf="!loginService.isLoggedIn()" class="nav-item nav-link" routerLink="/login">Login</a>
+                <a *ngIf="loginService.isAdmin()" class="nav-item nav-link" routerLink="/admin">Admin</a>
+                <a *ngIf="loginService.isMentor()" class="nav-item nav-link" routerLink="/mentorProfile">MentorProfile</a>
+                <a *ngIf="!loginService.isLoggedIn()" class="nav-item nav-link" routerLink="/register">Register</a>
+                <a *ngIf="loginService.isLoggedIn()" class="nav-item nav-link" routerLink="/logout">Logout</a>
+        </div>
+    </nav>
+    <router-outlet></router-outlet>
+

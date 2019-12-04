@@ -1,0 +1,93 @@
+<div class="container">
+<h3 class="font-italic text-capitalize text-md-center text-info">{{userDetails$.userName}}</h3>
+<br>
+<h4 class="font-italic text-capitalize text-md-left text-info">Profile Details</h4>
+<ng-container class="text-center" *ngIf="userDetails$">
+  
+<table>
+    <tr><td>Full Name : </td>
+        <td>{{userDetails$.userName}}</td></tr>
+    <tr><td>phoneNumber : </td>
+        <td>{{userDetails$.phoneNo}}</td></tr>
+    <tr><td>Average Rating: </td>
+        <td>{{userDetails$.average_rating}}</td></tr>
+    <tr><td>Years Of experiance : </td>
+        <td>{{userDetails$.experience}}</td></tr>
+    <tr><td>No of Trainings delivered : </td>
+        <td>{{userDetails$.noOfTrainingsDlvr}}</td></tr>
+    <tr><td>Expert In : </td>
+        <td>{{userDetails$.tech_selectedItems}}</td></tr>
+    <tr><td>Training Batch Times : </td>
+            <td>{{userDetails$.time_selectedItems}}</td></tr>
+
+</table>
+
+</ng-container>
+<br>
+
+<h4 class="font-italic text-capitalize text-md-left text-info">Current Training details </h4>
+
+<div class="row tech-table">
+    <table  class="table 
+      table-light  table-bordered table-striped table-hover ">
+      <thead class="table-info">
+        <th>Training Name</th>
+        <th>Student Name</th>
+        <th>StartDate</th>
+        <th>endDate</th>
+        <th>Batch Time</th>
+        <th>Status</th>
+        <th>Payment Status</th>
+      </thead>
+      <tbody>
+          <ng-container *ngFor="let training of restTrainingList$">
+          <tr *ngIf="training.status !== 'Proposed'">
+            
+            <td>{{training.technology}}</td>
+            <td>{{training.email}}</td>
+            <td>{{training.startDate}}</td>
+            <td>{{training.endDate}}</td>
+            <td>{{training.batchTime}}</td>
+            <td>{{training.status}}</td>
+            <td>{{training.paymentStatus}}%</td>
+          
+          </tr>
+          </ng-container>
+       </tbody>   
+      </table>
+</div> 
+
+
+<h4 class="font-italic text-capitalize text-md-left text-info">New Proposed Training Request for Action  </h4>
+
+<div class="row tech-table">
+    <table  class="table 
+    table-light  table-bordered table-striped table-hover ">
+    <thead class="table-info">
+      <th>Student Name</th>
+      <th>Start Date</th>
+      <th>end Date</th>
+      <th>Batch Time</th>
+      <th>Training Name</th>
+      <th>Action</th>
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let training of restTrainingList$">
+        <tr *ngIf="training.status === 'Proposed'">
+          
+          <td>{{training.email}}</td>
+          <td>{{training.startDate}}</td>
+          <td>{{training.endDate}}</td>
+          <td>{{training.batchTime}}</td>
+          <td>{{training.technology}}</td>
+          <td><label  class="cursorAsPointer p-1 mb-1 bg-success text-white" (click)="approveRequest(training.id)">APPROVE</label> 
+             Or 
+            <label class="cursorAsPointer p-1 mb-1 bg-primary text-white" (click)="rejectRequest(training.id)">Reject</label></td>
+        
+        </tr>
+        </ng-container>
+     </tbody>   
+    </table>
+</div> 
+<notifier-container></notifier-container>
+</div>

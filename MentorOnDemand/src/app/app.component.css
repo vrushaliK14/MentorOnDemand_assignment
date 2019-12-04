@@ -1,0 +1,15 @@
+h1 {
+    background-color: lightcoral;
+    font-size: 20px;
+    font-style: italic;
+}
+
+.cdk-live-announcer-element,.cdk-visually-hidden{
+    visibility: hidden;
+}
+
+
+.ml-auto{
+    left: auto !important;
+    right: 0px;
+}

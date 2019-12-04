@@ -1,0 +1,70 @@
+<div class="container" >
+    <br>
+    <form #searchTrainingForm="ngForm" (ngSubmit)="searchTraining(searchTrainingForm)">
+        <div class="row">
+                <div class="column">
+                        <div class="dropdown">
+                                <label for="technology">Technology</label>
+                                <select id="technology" name="technology"  [(ngModel)]="technology" class="form-control" >
+                                        <option value="">Choose Technology</option>
+                                        <option *ngFor="let technology of technologies">{{technology}}</option>
+                                </select>  
+                        </div>  
+                </div>
+                <div class="column">
+                        <div class="dropdown">
+                                <label for="mentor">Mentor</label>
+                                <select id="mentor" name="mentor" [(ngModel)]=mentor class="form-control">
+                                        <option value="">Choose Mentor</option>
+                                        <option *ngFor="let mentor of mentors">{{mentor}}</option>
+                                </select>  
+                        </div>  
+                </div>
+                <div class="column">
+                                <div class="dropdown">
+                                <label for="schedule">Schedule Time</label>
+                                <select id="schedule"  name="schedule"  [(ngModel)]=schedule class="form-control">
+                                        <option value="">Choose Time</option>  
+                                        <option>10:00-12:00</option>
+                                        <option>12:00-14:00</option>
+                                        <option>14:00-16:00</option>
+                                        <option>16:00-18:00</option>
+                                </select>
+                                </div>
+                </div>
+               <!-- <div class="column">
+                                <label for="StartDate">StartDate</label>
+                                <br>
+                                <input type="date" id="startDate"  name="startDate" [(ngModel)]="startDate">        
+                </div>-->
+                
+                <div class="column">   
+                         <br>
+                         <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+        </div>
+    </form>
+    <table class="table table-light  table-bordered table-striped table-hover " >
+            <thead class="table-info">
+            <th>   Technology       </th>
+            <th>   Mentor Name      </th>
+            <th>   Start Date       </th>
+            <th>   End Date         </th>
+            <th>   Batch Time       </th>
+            <th>   Experience       </th>
+            <th>   Mentor details  </th>
+            <th>   Apply Link      </th>
+            </thead>
+            <tr *ngFor="let training of restTrainingList$">
+                <td>{{ training.technology}}</td>
+                <td>{{ training.mentorName}}</td>
+                <td>{{ training.startDate}}</td>
+                <td>{{ training.endDate}}</td>
+                <td>{{ training.batchTime}}</td>
+                <td>{{ training.experience}}</td>
+                <td><label (click)="getMentorDetails(training.email)">Mentor details</label></td>
+                <td><label (click)="applyForTraining(training)">Apply to training</label></td>
+            </tr>
+        </table>    
+        <notifier-container></notifier-container>
+</div> 

@@ -1,0 +1,58 @@
+
+<div class='container'>
+    <h4 class="font-italic text-capitalize text-md-left text-info">
+        Hello Admin
+    </h4>
+    <br>
+    <div class="row">
+    <div class="col-5">
+        <div class="row">
+            <div class="col"><h4 class="font-italic text-capitalize text-md-left text-info">Technologies</h4></div>
+            <div class="col"><div class="text-md-left">Add New</div></div>
+        </div>  
+        <div class="row">
+        <table  class="table table-light  table-bordered table-striped table-hover tech-table">
+            <thead class="table-info">
+              <th>Technologies</th>
+              <th>action</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let technology of technologies">
+                  <td>{{technology}}</td>
+                  <td><label (click)="deleteTechnology(technology)">delete</label></td>  
+                </tr>
+               
+             </tbody>   
+        </table>
+        </div>    
+    </div>
+
+    <div class="col-5">
+        
+        <div class="row">
+            <div class="col"><h4 class="font-italic text-capitalize text-md-left text-info">Users</h4></div>
+        </div>    
+        <div class="row">
+        <table  class="table table-light  table-bordered table-striped table-hover tech-table">
+            <thead class="table-info">
+              <th>User Name</th>
+              <th>User Role</th>
+              <th>User email</th>
+              <th>action</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of userList">
+                  <td>{{user.userName}}</td>
+                  <td>{{user.userRole}}</td>
+                  <td>{{user.email}}</td>
+                  <td><label (click)="deleteTechnology(technology)">delete</label></td>  
+                </tr>
+             </tbody>   
+         </table>
+         </div>
+    </div>
+
+    
+
+    <notifier-container></notifier-container>
+ </div> 
